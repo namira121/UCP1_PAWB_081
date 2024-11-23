@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pupuk</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/">Kembali</a>
+        <h1>Daftar Pupuk</h1>
+        
+        <form action="/pupuk/post" method="post">
+            <label for="nama_pupuk">Nama Pupul:</label><br>
+            <input type="text" name="nama_pupuk" id="nama_pupuk" required><br>
+            
+            <label for="jenis_pupuk">Jenis Pupuk:</label><br>
+            <input type="text" name="jenis_pupuk" id="jenis_pupuk" required><br>
+            
+            <label for="jumlah_pupuk">Jumlah Pupuk:</label><br>
+            <input type="number" name="jumlah_pupuk" id="jumlah_pupuk" required><br>
+            
+            <button type="submit">Tambah</button>
+        </form>
+        
+        <table cellspacing="0" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Nama Pupuk</th>
+                    <th>Jenis Pupuk</th>
+                    <th>Jumlah Pupuk</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (pupuk.length > 0) { %>
+                    <% pupuk.forEach(item => { %>
+                        <tr>
+                            <td><%= item.nama_pupuk %></td>
+                            <td><%= item.jenis_pupuk %></td>
+                            <td><%= item.jumlah_pupuk %></td>
+                            <td>
+                                <!-- Tautan Edit -->
+                                <a href="/pupuk/edit/<%= item.id_pupuk %>">Edit</a>
+                                <!-- Form Hapus -->
+                                <form action="/pupuk/delete/<%= item.id_pupuk %>" method="post" style="display:inline;">
+                                    <button type="submit">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" style="text-align: center;">Tidak ada data</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
