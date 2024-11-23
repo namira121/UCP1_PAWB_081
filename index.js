@@ -38,8 +38,8 @@ app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 
 // Gunakan rute
-app.use('/bibit', bibitroutes); // Pastikan ini adalah express.Router()
-// app.use('/pupuk', pupukroutes); // Pastikan ini adalah express.Router()
+app.use('/bibit', bibitroutes); 
+app.use('/pupuk', pupukroutes); 
 
 app.get('/', (req, res) => res.render('index'));
 

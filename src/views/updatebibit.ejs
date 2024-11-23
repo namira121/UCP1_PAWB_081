@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Bibit</title>
+</head>
+<body>
+    <h1>Update Bibit</h1>
+    <div>
+        <form action="/bibit/update/<%= bibit.id_bibit %>" method="post">
+            <label for="nama_bibit">Nama Bibit:</label><br>
+            <input type="text" name="nama_bibit" id="nama_bibit" value="<%= bibit.nama_bibit %>"required><br>
+            
+            <label for="jenis_bibit">Jenis Bibit:</label><br>
+            <input type="text" name="jenis_bibit" id="jenis_bibit" value="<%= bibit.jenis_bibit %>"required><br>
+            
+            <label for="jumlah_bibit">Jumlah Bibit:</label><br>
+            <input type="number" name="jumlah_bibit" id="jumlah_bibit" value="<%= bibit.jumlah_bibit %>" required><br>
+            
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

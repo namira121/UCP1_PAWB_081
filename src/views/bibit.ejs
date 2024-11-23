@@ -43,7 +43,8 @@
                             <td><%= item.jumlah_bibit %></td>
                             <td>
                                 <!-- Tautan Edit -->
-                                <a href="/bibit/edit/<%= item.id_bibit %>">Edit</a>
+                                <a href="/bibit/update/<%= item.id_bibit %>">Edit</a>
+                                
                                 <!-- Form Hapus -->
                                 <form action="/bibit/delete/<%= item.id_bibit %>" method="post" style="display:inline;">
                                     <button type="submit">Hapus</button>
