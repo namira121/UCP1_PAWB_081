@@ -10,3 +10,8 @@ read bibit
 ![read ](https://github.com/user-attachments/assets/208e3799-d44e-43cd-b8f9-2a3d26651d55)
 delete bibit
 ![delete](https://github.com/user-attachments/assets/1760b8fe-4713-4ecb-8012-08a46e2658ae)
+tabel pupuk
+![db pupuk](https://github.com/user-attachments/assets/7bc008e4-eeb5-43f3-a367-1e433cd64277)
+tabel bibit
+![db bibit](https://github.com/user-attachments/assets/79ff537e-70a3-4da7-83b4-4240dc9df7f9)
+
