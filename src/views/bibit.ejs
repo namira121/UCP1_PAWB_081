@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Bibit</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/">Kembali</a>
+        <h1>Daftar Bibit</h1>
+        
+        <!-- Form Tambah Bibit -->
+        <form action="/bibit/post" method="post">
+            <label for="nama_bibit">Nama Bibit:</label><br>
+            <input type="text" name="nama_bibit" id="nama_bibit" required><br>
+            
+            <label for="jenis_bibit">Jenis Bibit:</label><br>
+            <input type="text" name="jenis_bibit" id="jenis_bibit" required><br>
+            
+            <label for="jumlah_bibit">Jumlah Bibit:</label><br>
+            <input type="number" name="jumlah_bibit" id="jumlah_bibit" required><br>
+            
+            <button type="submit">Tambah</button>
+        </form>
+        
+        <!-- Tabel Data Bibit -->
+        <table cellspacing="0" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Nama Bibit</th>
+                    <th>Jenis Bibit</th>
+                    <th>Jumlah Bibit</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (bibit.length > 0) { %>
+                    <% bibit.forEach(item => { %>
+                        <tr>
+                            <td><%= item.nama_bibit %></td>
+                            <td><%= item.jenis_bibit %></td>
+                            <td><%= item.jumlah_bibit %></td>
+                            <td>
+                                <!-- Tautan Edit -->
+                                <a href="/bibit/edit/<%= item.id_bibit %>">Edit</a>
+                                <!-- Form Hapus -->
+                                <form action="/bibit/delete/<%= item.id_bibit %>" method="post" style="display:inline;">
+                                    <button type="submit">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" style="text-align: center;">Tidak ada data</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
