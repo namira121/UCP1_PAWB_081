@@ -33,19 +33,19 @@ module.exports = {
     },
 
     updatebibit(req, res) {
-        const { id } = req.params;
+        const id = req.params.id;
         const { nama_bibit, jenis_bibit, jumlah_bibit } = req.body;
-        pool.query(
-            'UPDATE bibit SET nama_bibit = ?, jenis_bibit = ?, jumlah_bibit = ? WHERE id_bibit = ?',
-            [nama_bibit, jenis_bibit, jumlah_bibit, id],
-            (err) => {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).send('Gagal memperbarui data bibit');
-                }
-                res.redirect('/bibit');
+
+        const query = "UPDATE bibit SET nama_bibit = ?, jenis_bibit = ?, jumlah_bibit = ? WHERE id_bibit = ?";
+        const values = [nama_bibit, jenis_bibit, jumlah_bibit, id];
+
+        connection.query(query, values, (err) => {
+            if (err) {
+                console.error("Error mengupdate data bibit:", err);
+                return res.status(500).send("Terjadi kesalahan pada server.");
             }
-        );
+            res.redirect("/bibit");
+        });
     },
     deletebibit(req, res) {
         const { id } = req.params;
