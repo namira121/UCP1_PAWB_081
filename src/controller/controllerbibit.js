@@ -44,6 +44,21 @@ module.exports = {
             res.send('Data tidak lengkap');
         }
     },
-   
+    updatebibit(req, res) {
+        const { id_bibit } = req.params;
+        const { nama_bibit, jenis_bibit, jumlah_bibit } = req.body;
+        pool.getConnection(function (err, connection) {
+            if (err) throw err;
+            connection.query(
+                'UPDATE bibit SET nama_bibit = ?, jenis_bibit = ?, jumlah_bibit = ? WHERE id_bibit = ?',
+                [nama_bibit, jenis_bibit, jumlah_bibit, id_bibit],
+                function (error, results) {
+                    if (error) throw error;
+                    res.redirect('/bibit');
+                }
+            );
+            connection.release();
+        });
+    },
         
 }
